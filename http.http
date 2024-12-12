@@ -1,0 +1,12 @@
+### Start
+GET http://localhost:3000\
+
+###
+
+### Get all animals
+GET http://localhost:3000/animals
+
+###
+
+### Get all animals isEndangered
+GET http://localhost:3000/animals/endangered

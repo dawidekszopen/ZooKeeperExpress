@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Simba",
+    "species": "Lion",
+    "age": 5,
+    "isEndangered": true,
+    "habitat": "Savanna"
+  },
+  {
+    "id": 2,
+    "name": "Nemo",
+    "species": "Clownfish",
+    "age": 2,
+    "isEndangered": false,
+    "habitat": "Ocean"
+  },
+  {
+    "id": 3,
+    "name": "Elsa",
+    "species": "Polar Bear",
+    "age": 8,
+    "isEndangered": true,
+    "habitat": "Arctic"
+  },
+  {
+    "id": 4,
+    "name": "Kaa",
+    "species": "Python",
+    "age": 12,
+    "isEndangered": false,
+    "habitat": "Jungle"
+  },
+  {
+    "id": 5,
+    "name": "Dumbo",
+    "species": "Elephant",
+    "age": 15,
+    "isEndangered": true,
+    "habitat": "Savanna"
+  }
+]
