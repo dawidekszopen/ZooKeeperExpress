@@ -10,3 +10,25 @@ GET http://localhost:3000/animals
 
 ### Get all animals isEndangered
 GET http://localhost:3000/animals/endangered
+
+###
+
+### Get all animals isEndangered
+GET http://localhost:3000/animals/habitat/Savanna
+
+###
+
+### Post new animal
+
+POST http://localhost:3000/animals
+Content-Type: application/json; charset=utf-8
+
+{
+  "id": 6,
+  "name": "Ruzia",
+  "species": "Cat",
+  "age": 2,
+  "isEndangered": false,
+  "habitat": "Poland"
+}
+###

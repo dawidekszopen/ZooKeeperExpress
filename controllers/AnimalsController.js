@@ -20,6 +20,32 @@ const ZooController = {
         catch (e) {
             console.error(e)
         }
+    },
+
+    async GetAllAnimalsInHabitat(req, res){
+        const habitat = req.params.habitat
+
+        try{
+            const result = await AnimalsService.GetAllAnimalsInHabitat(habitat)
+
+            res.status(200).json(result)
+        }
+        catch (e) {
+            console.error(e)
+        }
+    },
+
+    async PostNewAnimal(req, res){
+        const newAnimal = req.body
+
+        try {
+            const result = await AnimalsService.PostNewAnimal(newAnimal)
+
+            res.status(200).json(result)
+        }
+        catch (e) {
+            console.error(e)
+        }
     }
 }
 

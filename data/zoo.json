@@ -38,5 +38,13 @@
     "age": 15,
     "isEndangered": true,
     "habitat": "Savanna"
+  },
+  {
+    "id": 6,
+    "name": "Ruzia",
+    "species": "Cat",
+    "age": 2,
+    "isEndangered": false,
+    "habitat": "Poland"
   }
 ]

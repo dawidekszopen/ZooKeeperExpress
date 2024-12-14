@@ -1,5 +1,6 @@
 import fsPromises from 'fs/promises'
 import path from 'path'
+import {json} from "express";
 
 const filePath = path.resolve("data", "zoo.json")
 
@@ -28,6 +29,47 @@ const ZooService = {
         }
 
         return JSON.parse(JSON.stringify(EndageredAnimals))
+    },
+
+    async GetAllAnimalsInHabitat(habitat){
+        try {
+            const animals = await this.GetAnimals()
+
+            console.log(habitat)
+
+            let HabitatAnimals = [];
+
+
+            for(let i = 0; i < animals.length; i++){
+                if(animals[i]["habitat"] === habitat){
+                    console.log(animals[i])
+                    HabitatAnimals.push(animals[i])
+                }
+            }
+
+            return JSON.parse(JSON.stringify(HabitatAnimals))
+        }
+        catch (e) {
+            console.error(e)
+        }
+
+    },
+
+    async PostNewAnimal(NewAnimal){
+
+        try {
+            const animals = await this.GetAnimals()
+
+            animals.push(NewAnimal)
+
+            fsPromises.writeFile(filePath, JSON.stringify(animals, null, 2), "utf-8")
+
+            return {message: "dodano nowe zwierzę!!!!"}
+        }
+        catch (e) {
+            console.error(e)
+        }
+
     }
 }
 
