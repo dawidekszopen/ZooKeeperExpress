@@ -55,6 +55,30 @@ const ZooService = {
 
     },
 
+    async GetAllAnimalsSpecies(species){
+        try {
+            const animals = await this.GetAnimals()
+
+            console.log(species)
+
+            let SpeciesAnimals = [];
+
+
+            for(let i = 0; i < animals.length; i++){
+                if(animals[i]["species"] === species){
+                    console.log(animals[i])
+                    SpeciesAnimals.push(animals[i])
+                }
+            }
+
+            return JSON.parse(JSON.stringify(SpeciesAnimals))
+        }
+        catch (e) {
+            console.error(e)
+        }
+
+    },
+
     async PostNewAnimal(NewAnimal){
 
         try {
@@ -70,6 +94,50 @@ const ZooService = {
             console.error(e)
         }
 
+    },
+
+    async UpdateNewAnimal(id, UpdatedAnimal){
+        try{
+            let animals = await this.GetAnimals()
+
+            const animalId = animals.findIndex(animal => animal.id === parseInt(id))
+
+            if(animalId === -1){
+                console.error(`nie znaleziono zwierzaka ${id}`)
+            }
+
+            animals[animalId] = {...animals[animalId], ...UpdatedAnimal}
+
+            await fsPromises.writeFile(filePath, JSON.stringify(animals, null, 2), "utf-8")
+
+            return {message: "dodano zaaktualizowano zwierzaka!!!!"}
+        }
+        catch (e) {
+            console.error(e)
+
+        }
+    },
+
+    async DeleteAnimal(id){
+        try{
+            let animals = await this.GetAnimals()
+
+            const animalId = animals.findIndex(animal => animal.id === parseInt(id))
+
+            if(animalId === -1){
+                console.error(`nie znaleziono zwierzaka ${id}`)
+            }
+
+            animals.splice(animalId, 1)
+
+            await fsPromises.writeFile(filePath, JSON.stringify(animals, null, 2), "utf-8")
+
+            return {message: "usunięto zwierzaka!!!! :C"}
+        }
+        catch (e) {
+            console.error(e)
+
+        }
     }
 }
 

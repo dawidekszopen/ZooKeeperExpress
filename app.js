@@ -13,8 +13,13 @@ app.get("/", (req, res) => {
 app.get("/animals", AnimalsController.GetAnimals)
 app.get("/animals/endangered", AnimalsController.GetAllAnimalsEndangered)
 app.get("/animals/habitat/:habitat", AnimalsController.GetAllAnimalsInHabitat)
+app.get("/animals/species", AnimalsController.GetAllAnimalsSpecies)
 
 app.post("/animals", AnimalsController.PostNewAnimal)
+
+app.put("/animals/:id", AnimalsController.UpdateNewAnimal)
+
+app.delete("/animals/:id", AnimalsController.DeleteAnimal)
 
 
 

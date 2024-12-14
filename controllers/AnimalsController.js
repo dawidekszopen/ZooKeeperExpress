@@ -35,11 +35,51 @@ const ZooController = {
         }
     },
 
+    async GetAllAnimalsSpecies(req, res){
+        const species = req.query.species
+
+        try{
+            const result = await AnimalsService.GetAllAnimalsSpecies(species)
+
+            res.status(200).json(result)
+        }
+        catch (e) {
+            console.error(e)
+        }
+    },
+
     async PostNewAnimal(req, res){
         const newAnimal = req.body
 
         try {
             const result = await AnimalsService.PostNewAnimal(newAnimal)
+
+            res.status(200).json(result)
+        }
+        catch (e) {
+            console.error(e)
+        }
+    },
+
+    async UpdateNewAnimal(req, res){
+        const id = req.params.id
+        const UpdatedAnimal = req.body
+
+        try {
+            const result = await AnimalsService.UpdateNewAnimal(id, UpdatedAnimal)
+
+            res.status(200).json(result)
+        }
+        catch (e) {
+            console.error(e)
+        }
+    },
+
+    async DeleteAnimal(req, res){
+        const id = req.params.id
+
+        try {
+            const result = await AnimalsService.DeleteAnimal(id)
 
             res.status(200).json(result)
         }

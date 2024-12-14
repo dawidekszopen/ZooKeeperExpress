@@ -18,6 +18,11 @@ GET http://localhost:3000/animals/habitat/Savanna
 
 ###
 
+### Get all animals within species
+GET http://localhost:3000/animals/species?species=Cat
+
+###
+
 ### Post new animal
 
 POST http://localhost:3000/animals
@@ -31,4 +36,23 @@ Content-Type: application/json; charset=utf-8
   "isEndangered": false,
   "habitat": "Poland"
 }
+###
+
+### Update animal
+PUT http://localhost:3000/animals/4
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "Kai",
+  "species": "Python",
+  "age": 12,
+  "isEndangered": false,
+  "habitat": "Jungle"
+}
+###
+
+### Delete animal
+DELETE http://localhost:3000/animals/7
+
 ###
